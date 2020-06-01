@@ -15,7 +15,7 @@ class CreateFleetsTable extends Migration
     {
         Schema::create('fleets', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('plate_number')->unique();
             $table->char('type',1)->comment('0: car, 1: motorcycle');
             $table->string('photo');

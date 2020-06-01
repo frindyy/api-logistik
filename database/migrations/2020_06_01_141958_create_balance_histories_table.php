@@ -15,8 +15,8 @@ class CreateBalanceHistoriesTable extends Migration
     {
         Schema::create('balance_histories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('user_balance_id');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_balance_id');
             $table->string('note');
             $table->integer('amount');
             $table->boolean('status');

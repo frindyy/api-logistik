@@ -15,7 +15,7 @@ class CreateOrderComplaintsTable extends Migration
     {
         Schema::create('order_complaints', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('order_id');
+            $table->unsignedBigInteger('order_id');
             $table->string('reason');
             $table->string('photo');
             $table->text('investigation_note')->nullable();
