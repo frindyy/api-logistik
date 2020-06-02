@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('phone_number',20);
-            $table->string('api_token');
+            $table->string('api_token')->nullable();
             $table->char('role',1)->comment('0: admin, 1: driver, 2: user');
             $table->boolean('status')->default(false);
             $table->timestamps();
