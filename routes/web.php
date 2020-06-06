@@ -16,7 +16,8 @@ $router->get('/', function () use ($router) {
 });
 
 $router->post('/login','AuthController@login');
-$router->post('/reset','sendResetToken@login');
+$router->post('/reset','AuthController@sendResetToken');
+$router->put('/reset/{token}','AuthController@verifyResetPassword');
 
 $router->group(['middleware' => 'auth'], function() use($router){
     $router->get('/users','UserController@index');
