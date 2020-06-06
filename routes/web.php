@@ -15,6 +15,9 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->post('/login','AuthController@login');
+$router->post('/reset','sendResetToken@login');
+
 $router->group(['middleware' => 'auth'], function() use($router){
     $router->get('/users','UserController@index');
     $router->post('/users','UserController@store');

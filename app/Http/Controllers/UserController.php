@@ -24,11 +24,11 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'identity_id' => 'required',
+            'name' => 'required|string',
+            'identity_id' => 'required|unique:users',
             'gender' => 'required',
-            'address' => 'required',
-            'photo' => 'required|image|mimes:jpg,jpeg,png',
+            'address' => 'required|string',
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:5',
             'phone_number' => 'required',
@@ -84,6 +84,19 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'name' => 'required|string',
+            'identity_id' => 'required|unique:users',
+            'gender' => 'required',
+            'address' => 'required|string',
+            'photo' => 'nullable|image|mimes:jpg,jpeg,png',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:5',
+            'phone_number' => 'required',
+            'role' => 'required',
+            'status' => 'required'
+        ]);
+
         $user = User::where('id',$id)->first();
 
         if ($user) 
